@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Operations</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #99ff99;
+    }
+
+    .text-center {
+        text-align: center;
+        font-size: 35px;
+        color: #00001a;
+        text-shadow: 1px 2px 3px;
+    }
+
+    #input {
+        width: 70%;
+        display: block;
+        margin: 20px auto;
+        min-height: 100px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #cceeff;
+        font-size: 15px;
+    }
+
+    .textbox {
+        width: 70%;
+        display: block;
+        margin: 20px auto;
+        min-height: 100px;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 15px;
+        background-color:#d6d6c2;
+        border: double ;
+    }
+
+    .container {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 20px auto;
+    }
+    .btn-action {
+        width: 150px;
+        padding: 7px 12px;
+        font-size: 18px;
+        border: none;
+        border-radius: 20px;
+        color: #fff;
+        background-color: rgb(4, 4, 34);
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .btn-action:hover {
+        transition: 0.3s;
+        background-color: rgb(52, 52, 81);
+        box-shadow: 2px 2px 3px 4px rgb(155, 152, 150);
+    }
+
+    @media screen and (max-width:500px) {
+        .btn-action {
+            justify-content: center;
+        }
+
+        .textbox {
+            width: 90%;
+           
+        }
+
+        #input {
+            width: 90%;
+        }
+    }
+</style>
+
+<body>
+    <h1 class="text-center"><u>Text operation..</u></h1>
+    <input type="text" id="input" placeholder="Enter a text to perform operations" />
+
+    <input type="text" id="output" placeholder="Output will be displayed here.." class="textbox" />
+
+    <div class="container">
+        <button type="button" class="btn-action" onclick="handletextops('uppercase')">Upper case</button>
+        <button type="button" class="btn-action" onclick="handletextops('lowercase')">lower case</button>
+        <button type="button" class="btn-action" onclick="handletextops('wordcount')">word count</button>
+        <button type="button" class="btn-action" onclick="handletextops('charcount')">character count</button>
+    </div>
+    <script>
+
+        function handletextops(op) {
+            const inputElement = document.getElementById('input');
+            const outputElement = document.getElementById('output');
+
+            if (op == "uppercase") {
+                outputElement.value = inputElement.value.toUpperCase();
+            }
+            else if (op == "lowercase") {
+                outputElement.value = inputElement.value.toLowerCase();
+            }
+            else if (op == "wordcount") {
+                outputElement.value = `word count:${inputElement.value.split(" ").length}`;
+            }
+            else if (op == "charcount") {
+                outputElement.value = `character count:${inputElement.value.length}`;
+            }
+        }
+    </script>
+</body>
+</html>
